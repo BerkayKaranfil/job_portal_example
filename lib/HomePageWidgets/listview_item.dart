@@ -12,6 +12,7 @@ class HomePageListViewWidget extends StatefulWidget {
 }
 
 class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
+  bool heartindex = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,7 +49,9 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                         Text(
                           "Product Designer",
                           style: GoogleFonts.inter(
-                              fontSize: 14, color: Color(0xffF8FAFC), fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              color: Color(0xffF8FAFC),
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
                     )
@@ -56,7 +59,16 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: SvgPicture.asset("assets/homeassets/favorite1.svg"),
+                  child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          heartindex = !heartindex;
+                        });
+                      },
+                      child: heartindex == true
+                          ? SvgPicture.asset("assets/homeassets/favorite1.svg")
+                          : SvgPicture.asset(
+                              "assets/homeassets/favorite2.svg")),
                 ),
               ],
             ),

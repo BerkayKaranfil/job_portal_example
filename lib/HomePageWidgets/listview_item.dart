@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:job_portal_example/items.dart';
+import 'package:provider/provider.dart';
 
 class HomePageListViewWidget extends StatefulWidget {
   const HomePageListViewWidget({super.key});
@@ -15,7 +17,8 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
   bool heartindex = true;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Consumer(builder: ((context, items items, widget) {
+      return Container(
       height: 134,
       width: 336,
       decoration: BoxDecoration(
@@ -31,7 +34,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
               children: [
                 Row(
                   children: [
-                    SvgPicture.asset("assets/homeassets/list1.svg"),
+                    SvgPicture.asset("${items.jobList![index]["photo"]}"),
                     SizedBox(
                       width: 10,
                     ),
@@ -39,7 +42,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Altasian",
+                          "${items.jobList![index]["company"]}",
                           style: GoogleFonts.inter(
                               fontSize: 12, color: Color(0xff40577D)),
                         ),
@@ -47,7 +50,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                           height: 4,
                         ),
                         Text(
-                          "Product Designer",
+                          "${items.jobList![index]["job"]}",
                           style: GoogleFonts.inter(
                               fontSize: 14,
                               color: Color(0xffF8FAFC),
@@ -82,7 +85,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                   width: 10,
                 ),
                 Text(
-                  "XYZ, Dublin",
+                  " ${items.jobList![index]["location"]}",
                   style:
                       GoogleFonts.inter(color: Color(0xff40577D), fontSize: 12),
                 )
@@ -123,5 +126,6 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
         ),
       ),
     );
+    }));
   }
 }

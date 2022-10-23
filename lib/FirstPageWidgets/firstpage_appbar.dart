@@ -13,37 +13,29 @@ class FirstPageAppbarWidget extends StatefulWidget {
 class _FirstPageAppbarWidgetState extends State<FirstPageAppbarWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Container(
+      height: 50,
+      width: double.infinity,
+      decoration: BoxDecoration(color: Color(0xff0C0D15)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            height: 100,
-          ),
-          Container(
-            height: 50,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Color(0xff0C0D15)
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(onTap: () {
-                  setState(() {
-                    
-                  });
-                }, child: SvgPicture.asset("assetName")),
-                Row(
-                  children: [
-                    SvgPicture.asset("assetName"),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    SvgPicture.asset("assetName"),
-                  ],
-                )
-              ],
-            ),
+          GestureDetector(
+              onTap: () {
+                setState(() {});
+              },
+              child: SvgPicture.asset(
+                  "assets/homeassets/firstscreenassets/arrowleft.svg")),
+          Row(
+            children: [
+              SvgPicture.asset(
+                  "assets/homeassets/firstscreenassets/firstfavorite.svg"),
+              SizedBox(
+                width: 20,
+              ),
+              SvgPicture.asset(
+                  "assets/homeassets/firstscreenassets/outline.svg"),
+            ],
           )
         ],
       ),

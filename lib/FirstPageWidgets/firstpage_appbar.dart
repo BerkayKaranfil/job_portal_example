@@ -25,16 +25,16 @@ class _FirstPageAppbarWidgetState extends State<FirstPageAppbarWidget> {
                 setState(() {});
               },
               child: SvgPicture.asset(
-                  "assets/homeassets/firstassets/arrowleft.svg")),
+                  "assets/firstassets/arrowleft.svg")),
           Row(
             children: [
               SvgPicture.asset(
-                  "assets/homeassets/firstassets/firstfavorite.svg"),
+                  "assets/firstassets/firstfavorite.svg"),
               SizedBox(
                 width: 20,
               ),
               SvgPicture.asset(
-                  "assets/homeassets/firstassets/outline.svg"),
+                  "assets/firstassets/outline.svg"),
             ],
           )
         ],

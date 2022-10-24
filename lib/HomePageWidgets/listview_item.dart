@@ -18,7 +18,10 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: ((context, items items, widget) {
-      return Container(
+      return ListView.builder(
+        itemCount: items.jobList.length,
+        itemBuilder: ((context, index) {
+        return Container(
       height: 134,
       width: 336,
       decoration: BoxDecoration(
@@ -34,7 +37,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
               children: [
                 Row(
                   children: [
-                    SvgPicture.asset("${items.jobList![index]["photo"]}"),
+                    SvgPicture.asset("${items.jobList[index]["photo"]}"),
                     SizedBox(
                       width: 10,
                     ),
@@ -42,7 +45,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "${items.jobList![index]["company"]}",
+                          "${items.jobList[index]["company"]}",
                           style: GoogleFonts.inter(
                               fontSize: 12, color: Color(0xff40577D)),
                         ),
@@ -50,7 +53,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                           height: 4,
                         ),
                         Text(
-                          "${items.jobList![index]["job"]}",
+                          "${items.jobList[index]["job"]}",
                           style: GoogleFonts.inter(
                               fontSize: 14,
                               color: Color(0xffF8FAFC),
@@ -85,7 +88,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
                   width: 10,
                 ),
                 Text(
-                  " ${items.jobList![index]["location"]}",
+                  " ${items.jobList[index]["location"]}",
                   style:
                       GoogleFonts.inter(color: Color(0xff40577D), fontSize: 12),
                 )
@@ -126,6 +129,7 @@ class _HomePageListViewWidgetState extends State<HomePageListViewWidget> {
         ),
       ),
     );
+      }));
     }));
   }
 }

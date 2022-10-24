@@ -54,7 +54,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   SizedBox(
                     height: 20,
                   ),
-                  
+                  FirstPageMainBoxWidget(),
                 ],
               ),
             ),
